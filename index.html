@@ -104,7 +104,7 @@
                     <label>Priority</label>
                     <select name="priority" required>
                         <option value="Standard">Standard</option>
-                        <option value="Urgent">Urgent</option>
+                        <option value="Urgent">Urgent (cirtial service down only)</option>
                         <option value="Administrative">Administrative</option>
                     </select>
                 </div>
@@ -115,7 +115,7 @@
             </div>
 
             <div class="full-width">
-                <label>Location</label>
+                <label>Site Location</label>
                 <select name="location" required>
                     <option value="" disabled selected>Select a location...</option>
                     <option value="1871">1871</option>
@@ -123,7 +123,17 @@
                     <option value="HATM">HATM</option>
                 </select>
             </div>
-
+            <div class="form-row">
+            <div class="full-width">
+                <label>Computer location</label>
+                <input type="text" name="name" placeholder="e.g Room6" required>
+            </div>
+            <div class="form-row">
+                <div class="full-width">
+                <label>Computer Name (bottom right of monitor)</label>
+                <input type="text" name="name" placeholder="1871P213" required>
+            </div>
+                
             <div class="full-width">
                 <label>Request Description</label>
                 <textarea name="description" rows="4" placeholder="How can we help?" required></textarea>
