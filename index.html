@@ -43,6 +43,7 @@
         .form-group { flex: 1; display: flex; flex-direction: column; }
 
         label { font-weight: 600; margin-bottom: 8px; font-size: 0.85rem; color: #475569; }
+        .optional { font-weight: normal; color: #94a3b8; font-size: 0.75rem; }
 
         input, select, textarea {
             padding: 12px; border: 1px solid var(--border-color);
@@ -59,6 +60,13 @@
         .file-box {
             background: #f1f5f9; border: 2px dashed var(--border-color);
             padding: 20px; border-radius: 8px; text-align: center; margin-top: 5px;
+        }
+
+        /* Centers the Turnstile widget */
+        .cf-turnstile {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
         }
 
         .submit-btn {
@@ -85,8 +93,9 @@
 
         <form action="https://formspree.io/f/xyknlojw" method="POST" enctype="multipart/form-data">
 
-            <input type="hidden" name="_subject" value="NEW TICKET: Integral Solutions Portal">
-            <input type="hidden" name="_next" value="thanks.html">
+            <input type="hidden" name="_subject" value="New Portal Ticket: {{location}} - {{name}}">
+            
+            <input type="hidden" name="_next" value="https://support.integralsolutions.ca/thanks.html">
 
             <div class="form-row">
                 <div class="form-group">
@@ -123,14 +132,15 @@
                     <option value="HATM">HATM</option>
                 </select>
             </div>
-           <div class="form-row">
+
+            <div class="form-row">
                 <div class="form-group">
                     <label>Computer Location</label>
                     <input type="text" name="computer_room_desk" placeholder="e.g. 3rd Floor - Room 14" required>
                 </div>
                 <div class="form-group">
                     <label>Computer Name <span class="optional">(Optional)</span></label>
-                    <input type="text" name="computer_name" placeholder="See label on bottom right of monitor">
+                    <input type="text" name="computer_name" placeholder="Label on bottom right of monitor">
                 </div>
             </div>
                 
@@ -150,7 +160,9 @@
                     <input type="file" name="upload" accept="image/*" multiple>
                 </div>
             </div>
-           <div class="cf-turnstile" data-sitekey="0x4AAAAAACs5fdH-NgT4mSdg"></div>
+
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAACs5fdH-NgT4mSdg"></div>
+
             <button type="submit" class="submit-btn">Submit Ticket</button>
         </form>
     </div>
